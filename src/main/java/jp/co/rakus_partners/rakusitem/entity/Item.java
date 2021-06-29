@@ -1,5 +1,11 @@
 package jp.co.rakus_partners.rakusitem.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+//batch処理用にアノテーション追記
+
+@JsonPropertyOrder({"ID", "名前", "状態", "カテゴリー", "ブランド", "金額", "配送", "説明"})
 public class Item {
 
     public Integer getId() {
@@ -66,13 +72,22 @@ public class Item {
         this.description = description;
     }
 
+    //batch処理用にアノテーション追記 
+    @JsonProperty("ID")
     private Integer id;
+    @JsonProperty("名前")
     private String name;
+    @JsonProperty("状態")
     private Integer condition;
+    @JsonProperty("カテゴリー")
     private Integer category;
+    @JsonProperty("ブランド")
     private String brand;
+    @JsonProperty("金額")
     private Integer price;
+    @JsonProperty("配送")
     private Integer shipping;
+    @JsonProperty("説明")
     private String description;
 
     private String nameAll;

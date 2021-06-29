@@ -21,6 +21,11 @@ public class ItemService {
     public Integer searchCount(SearchForm searchForm) {
         return itemRepository.searchCount(searchForm);
     }
+    
+    //batch演習用に追記
+    public List<Item> searchAll() {
+        return itemRepository.searchAll();
+    }
 }
 
 

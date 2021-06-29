@@ -201,6 +201,13 @@
   </nav>
 
   <div id="main" class="container-fluid">
+  
+  	<!-- バッチ演習用ダウンロードボタン -->
+  	<form id="csvform" method="post" th:action="@{/item/csvDownload}" th:object="${response}">
+    	<input type="hidden" name="filename"/>
+    	<button type="submit" >ダウンロード</button>
+	</form>
+	
     <!-- addItem link -->
     <div id="addItemButton">
       <a class="btn btn-default" href="./add.html"><i class="fa fa-plus-square-o"></i> Add New Item</a>

@@ -82,6 +82,27 @@ public class ItemRepository {
         }
         return sql;
     }
+    
+    //batch演習用に追記
+    public List<Item> searchAll() {
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        String sql = "SELECT";
+        sql += "  i.id id";
+        sql += " , i.name \"name\"";
+        sql += " , condition";
+        sql += " , category";
+        sql += " , brand";
+        sql += " , price";
+        sql += " , shipping";
+        sql += " , description";
+        sql += " , name_all";
+        sql += " FROM items i";
+        sql += " LEFT JOIN category c ON c.id = i.category";
+        sql += " WHERE 1 = 1";
+
+        return namedJdbcTemplate.query(sql, params, ROW_MAPPER);
+      
+    }
 
 
 }
